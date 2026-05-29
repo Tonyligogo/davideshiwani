@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import HeroImage from "@/public/hero-image.jpg"
-import { antagon, billSmith } from '@/components/ui/fonts'
+import { antagon, billSmith, texgyreheros } from '@/components/ui/fonts'
 
 const Hero = () => {
   return (
@@ -28,7 +28,7 @@ const Hero = () => {
         <div className='grid grid-cols-1 sm:grid-cols-2 items-center gap-8 relative border-b pb-4 pr-4'>
             <div className='text-white relative px-4'>
                 <div className="absolute -top-10 right-0 left-0 h-4 border-t border-l border-r " />
-                <p className='font-extrabold text-8xl'>PORT <br /> FOLIO.</p>
+                <p className={`${texgyreheros.className} text-8xl font-extrabold `}>PORT <br /> FOLIO.</p>
             </div>
             <div>
                 <Image src={HeroImage} alt='Hero image' className='w-full h-full object-contain' />

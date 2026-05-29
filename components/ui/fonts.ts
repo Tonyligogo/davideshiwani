@@ -11,3 +11,9 @@ export const antagon = localFont({
   variable: "--font-antagon",
   display: "swap",
 });
+
+export const texgyreheros = localFont({
+  src:"../../app/fonts/texgyreheros-bold.otf",
+  variable: "--font-texgyreheros",
+  display: "swap",
+});
