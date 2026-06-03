@@ -143,16 +143,16 @@ export default function ProjectsSection() {
             {/* Solid Section Signifier in Foreground */}
             <div className="absolute left-8 md:left-16 bottom-1/3 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 flex flex-col items-start z-10">
               <div className="flex items-baseline gap-1">
-                <span className="font-antagon text-5xl sm:text-6xl md:text-7xl uppercase tracking-tight text-white">
+                <span className="font-antagon text-5xl sm:text-6xl md:text-7xl tracking-tight text-white">
                   {cat.accentLabel.split(" ")[0]}
                 </span>
                 {cat.accentLabel.split(" ")[1] && (
-                  <span className="font-antagon text-5xl sm:text-6xl md:text-7xl uppercase tracking-tight text-white hidden sm:inline">
+                  <span className="font-antagon text-5xl sm:text-6xl md:text-7xl tracking-tight text-white hidden sm:inline">
                     {cat.accentLabel.split(" ")[1]}
                   </span>
                 )}
               </div>
-              <span className="font-script text-4xl sm:text-5xl md:text-6xl text-blue-500 mt-[-10px] ml-6 tracking-wide drop-shadow-[0_4px_10px_rgba(37,99,235,0.3)]">
+              <span className="font-antagon text-5xl sm:text-6xl md:text-7xl  text-white mt-[-10px] ml-6 tracking-wide drop-shadow-[0_4px_10px_rgba(37,99,235,0.3)]">
                 Design
               </span>
             </div>
@@ -171,18 +171,9 @@ export default function ProjectsSection() {
                 {/* Project Header Row */}
                 <div className="w-full flex items-center justify-between gap-6 mb-8">
                   <div className="flex items-center gap-4">
-                    
-                    {/* Embedded Accent Block Title */}
-                    <div className="relative inline-block scale-90">
-                      <div className="absolute inset-0 bg-blue-700 rounded-lg -skew-x-6 scale-y-105 scale-x-105 opacity-90 blur-[0.5px]" />
-                      <span className="relative font-antagon text-xs tracking-widest text-white uppercase px-3 py-1 font-bold">
-                        UI/UX Design
-                      </span>
-                    </div>
-
                     {/* Main Dynamic Headline */}
                     <h3 className="text-3xl sm:text-4xl font-light font-sans tracking-wide text-neutral-100">
-                      -{project.title}
+                      {project.title}
                     </h3>
                   </div>
 

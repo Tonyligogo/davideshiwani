@@ -1,6 +1,5 @@
 import { antagon } from "@/components/ui/fonts";
 import { Mail } from "lucide-react";
-import React from "react";
 
 export default function HireMeSection() {
   return (
@@ -10,7 +9,7 @@ export default function HireMeSection() {
     >
       {/* ================= HEADING TEXT ================= */}
       <div className="text-center max-w-4xl mx-auto mb-16 px-4">
-        <h2 className="font-sans font-bold text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight">
+        <h2 className="font-texgyreheros font-bold text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight">
           Ready to kickstart your project
           <br />
           with a touch of magic?
