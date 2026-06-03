@@ -13,8 +13,8 @@ export default function IntroSection() {
         </div>
         
         {/* Abstract Sharp Starbursts */}
-        <div className="absolute top-1/4 right-1/3 text-blue-600 text-5xl animate-pulse">✦</div>
-        <div className="absolute bottom-1/3 left-10 text-blue-600 text-7xl opacity-40">✦</div>
+        <div className="absolute top-1/4 right-1/3 text-blue-600 text-5xl ">✦</div>
+        <div className="absolute bottom-1/3 left-10 text-blue-600 text-7xl ">✦</div>
         
         <div className="text-transparent stroke-blue-600 [-webkit-text-stroke:2px_#2563eb] uppercase tracking-normal text-right transform rotate-12 origin-bottom-right mt-auto">
           DUCTION
