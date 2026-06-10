@@ -9,7 +9,7 @@ export default function HireMeSection() {
     >
       {/* ================= HEADING TEXT ================= */}
       <div className="text-center max-w-4xl mx-auto mb-16 px-4">
-        <h2 className="font-texgyreheros font-bold text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight">
+        <h2 className="font-texgyreheros text-4xl sm:text-5xl md:text-6xl text-white leading-[1.1] tracking-tight">
           Ready to kickstart your project
           <br />
           with a touch of magic?
@@ -31,7 +31,7 @@ export default function HireMeSection() {
             />
           </svg>
           <p
-            className={`${antagon.className} absolute top-1/2 -translate-y-1/2 text-7xl text-white left-1/2 -translate-x-1/2 text-nowrap`}
+            className={`${antagon.className} absolute top-1/2 -translate-y-1/2 text-5xl lg:text-7xl text-white left-1/2 -translate-x-1/2 text-nowrap`}
           >
             Hire me...
           </p>
@@ -41,7 +41,7 @@ export default function HireMeSection() {
           width="160"
           viewBox="0 0 331 339"
           fill="none"
-          className="absolute -right-1/2 -translate-x-3/4 top-4"
+          className="hidden md:block absolute -right-1/2 -translate-x-3/4 top-4"
         >
           <path
             d="M47.3382 78.3821C46.6202 78.6309 46.3948 77.5712 46.1672 77.4604C47.4619 76.9643 47.3382 78.3821 47.3382 78.3821Z"

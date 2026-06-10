@@ -1,42 +1,27 @@
-import React from 'react';
-import { Phone } from 'lucide-react';
-import { antagon } from '@/components/ui/fonts';
 
 export default function IntroSection() {
   return (
-    <div id="about" className="relative min-h-screen w-full bg-black text-white overflow-hidden flex items-center justify-center p-6 md:p-16 select-none">
+    <div id="about" className="relative min-h-screen w-full bg-black mt-16 text-white overflow-hidden flex items-center justify-center md:p-16">
       
       {/* --- BACKGROUND WATERMARK LAYER --- */}
-      <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-12 font-sans font-black tracking-widest text-[9rem] md:text-[14rem] leading-none pointer-events-none select-none z-0 opacity-20">
+      <div className="absolute inset-0 flex flex-col justify-between p-4 md:p-12 font-sans font-black tracking-widest text-[6rem] md:text-[14rem] leading-none pointer-events-none select-none z-0 opacity-20">
         <div className="text-transparent stroke-blue-600 [-webkit-text-stroke:2px_#2563eb] uppercase transform -rotate-12 origin-top-left">
           INTRO
         </div>
-        
-        {/* Abstract Sharp Starbursts */}
         <div className="absolute top-1/4 right-1/3 text-blue-600 text-5xl ">✦</div>
         <div className="absolute bottom-1/3 left-10 text-blue-600 text-7xl ">✦</div>
-        
         <div className="text-transparent stroke-blue-600 [-webkit-text-stroke:2px_#2563eb] uppercase tracking-normal text-right transform rotate-12 origin-bottom-right mt-auto">
           DUCTION
         </div>
       </div>
 
       {/* --- MAIN CONTENT GRID --- */}
-      <div className="relative z-10 max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-        
-        {/* LEFT COLUMN: THE ID CARD */}
-        <div className="lg:col-span-6 flex justify-center items-center relative py-12">
-          
-          {/* Card Wrapper with explicit perspective & tilt */}
-          <img src="/card.png" alt="" />
+      <div className="relative z-10 max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">        
+        <div className="lg:col-span-6 flex justify-center items-center relative py-12">          
+          <img src="/card.png" alt="David Eshiwani" />
         </div>
-
-        {/* RIGHT COLUMN: TEXT CONTENT */}
-        <div className="lg:col-span-6 flex flex-col justify-center space-y-6 px-4">
-          
-          {/* Header with Background Accent Stroke emulation */}
+        <div className="lg:col-span-6 flex flex-col justify-center space-y-6 px-4">          
           <img src="/intro.png" alt="" />
-
           {/* Biography Paragraphs */}
           <div className="space-y-4 text-base md:text-xl max-w-xl font-light">
             <p>
@@ -54,7 +39,7 @@ export default function IntroSection() {
           <div className="pt-4 flex flex-col space-y-8">
             <div className="flex items-center gap-4">
               <div className='relative'>
-              <button className={`${antagon.className} border rounded-xl px-6 py-2 text-3xl bg-transparent text-white`}>
+              <button className={`font-antagon border rounded-xl px-6 py-2 text-3xl bg-transparent text-white`}>
                 Find me
               </button>
               

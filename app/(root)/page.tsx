@@ -6,7 +6,7 @@ import ProjectsSection from './components/projects'
 
 const Home = () => {
   return (
-    <main>
+    <main className='bg-black'>
         <Hero/>
         <IntroSection/>
         <SkillsSection/>
