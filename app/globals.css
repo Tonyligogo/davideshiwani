@@ -130,3 +130,27 @@
     @apply font-inter;
   }
 }
+.grid-bg::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('/grid-shape.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* globals.css */
+/* .grid-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 50;
+} */

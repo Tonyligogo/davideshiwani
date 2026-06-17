@@ -95,7 +95,7 @@ const CATEGORIZED_PROJECTS = [
 
 export default function ProjectsSection() {
   return (
-    <div id="projects" className="w-full bg-black text-white selection:bg-blue-600 select-none relative mt-12">
+    <div id="projects" className="w-full text-white selection:bg-blue-600 select-none relative mt-12">
 
        <div className=" flex flex-col justify-between p-4 md:p-12 font-sans opacity-30 font-extrabold tracking-widest text-[4rem] md:text-[14rem] leading-none pointer-events-none select-none z-0 ">
         <div className="text-transparent stroke-blue-600 [-webkit-text-stroke:2px_#2563eb] uppercase tracking-normal mx-auto">
@@ -107,12 +107,12 @@ export default function ProjectsSection() {
       {CATEGORIZED_PROJECTS.map((cat) => (
         <section 
           key={cat.id} 
-          className="relative w-full md:border-b border-neutral-900 flex flex-col lg:flex-row items-start"
+          className="relative w-full flex flex-col lg:flex-row items-start"
         >
           
           {/* ================= STICKY LEFT SIDEBAR (TITLE CANVAS) ================= */}
-          <div className="w-full lg:w-[45%] lg:h-screen sticky top-0 bg-black flex items-center justify-center overflow-hidden p-6 pt-12 md:pt-0 md:p-12 z-20">
-            <div className="hidden md:block md:absolute right-0 lg:top-1/2 lg:-translate-y-1/2 w-full text-right pointer-events-none pr-4 md:pr-10">
+          <div className="w-full lg:w-[45%] lg:h-screen sticky top-0 flex items-center justify-center overflow-hidden p-6 pt-12 md:pt-0 md:p-12 z-20">
+            <div className="absolute right-0 lg:top-1/2 lg:-translate-y-1/2 w-full text-right pr-4 md:pr-10">
               <h2 className="font-antagon text-[3rem] md:text-[13rem] leading-[0.85] uppercase tracking-normal text-transparent [-webkit-text-stroke:2px_#2563eb] opacity-80 whitespace-nowrap transform lg:rotate-12 origin-right transition-transform duration-700">
                 {cat.categoryTitle}
               </h2>
@@ -134,7 +134,7 @@ export default function ProjectsSection() {
             </div>
           </div>
           {/* ================= RIGHT SIDEBAR (PROJECT WORK FEED) ================= */}
-          <div className="w-full lg:w-[55%] flex flex-col bg-black z-10">
+          <div className="w-full lg:w-[55%] flex flex-col z-10">
             {cat.projects.map((project, idx) => (
               <div 
                 key={idx} 

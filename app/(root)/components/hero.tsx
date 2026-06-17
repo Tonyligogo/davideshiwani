@@ -28,7 +28,6 @@ const navLinks = [
   },
 ]
 
-
 const Hero = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   return (
@@ -42,7 +41,7 @@ const Hero = () => {
                 </a>
               ))}
         </nav>
-        <button className='text-white' onClick={()=>setMenuOpen(prev=>!prev)}>
+        <button className='text-white md:hidden' onClick={()=>setMenuOpen(prev=>!prev)}>
           {menuOpen ? 
           <XIcon/>
           :

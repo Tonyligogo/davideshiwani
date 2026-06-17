@@ -6,7 +6,8 @@ import ProjectsSection from './components/projects'
 
 const Home = () => {
   return (
-    <main className='bg-black'>
+    <main className='bg-black relative overflow-hidden grid-bg'
+    >
         <Hero/>
         <IntroSection/>
         <SkillsSection/>
