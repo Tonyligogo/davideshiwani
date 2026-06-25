@@ -43,7 +43,7 @@ export function SignInCard({ onSignUp }: { onSignUp: () => void }) {
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Welcome back</CardTitle>
           <CardDescription>
-            Login with your email and password below.
+            Hiking Designer-The Man, The Myth, The Legend.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -83,10 +83,6 @@ export function SignInCard({ onSignUp }: { onSignUp: () => void }) {
           </form>
         </CardContent>
       </Card>
-      <FieldDescription className="px-6 text-center">
-        By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
-        and <a href="#">Privacy Policy</a>.
-      </FieldDescription>
     </div>
   )
 }

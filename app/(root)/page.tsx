@@ -6,7 +6,7 @@ import ProjectsSection from './components/projects'
 
 const Home = () => {
   return (
-    <main className='bg-black relative overflow-hidden grid-bg'
+    <main className='bg-black relative grid-bg'
     >
         <Hero/>
         <IntroSection/>
@@ -18,3 +18,5 @@ const Home = () => {
 }
 
 export default Home
+
+ 

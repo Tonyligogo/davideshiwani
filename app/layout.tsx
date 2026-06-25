@@ -45,7 +45,7 @@ export default function RootLayout({
         lang="en"
         className={`${inter.variable} ${antagon.variable} ${billSmith.variable} ${texgyreheros.variable} h-full antialiased`}
       >
-        <body className="min-h-full flex flex-col">
+        <body className="">
           <ConvexClientProvider>
             {children}
             <Toaster/>
