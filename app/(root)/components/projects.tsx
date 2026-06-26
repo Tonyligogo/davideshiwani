@@ -1,9 +1,62 @@
 /* eslint-disable @next/next/no-img-element */
 const CATEGORIZED_PROJECTS = [
   {
+    id: "graphic-design",
+    categoryTitle: "Graphic Art",
+    accentLabel: "Graphic",
+    projects: [
+      {
+        title: "VegCurious Blog",
+        description:
+          "VEGCURIOUS is a blog website about vegetarian restaurants and food trends. The blog allows users to read about vegetarian meals and share experiences with fellow vegetarians.",
+        logo: "./veg-logo.png",
+        images: ["./veg-image.png", "./veg-image2.png"],
+        link: "#",
+      },
+      {
+        title: "Violet Photographer",
+        description:
+          "VIOLET PHOTOGRAPHER is an online gallery where users can download and upload images.",
+        logo: "./violet-logo.png",
+        images: ["./violet-image.png", "./violet-image2.png"],
+        link: "#",
+      },
+    ],
+  },
+  {
+    id: "animation",
+    categoryTitle: "Motion Canvas",
+    accentLabel: "Animation",
+    projects: [
+      {
+        title: "Be",
+        description:
+          "BE is a simple to do list app with a simple easy to use interface. The app allows users to set tasks and get remainders for the set tasks.",
+        logo: "./be-logo.png",
+        images: ["./be-image.png"],
+        link: "#",
+      },
+    ],
+  },
+  {
+    id: "editing",
+    categoryTitle: "VFX & Timeline",
+    accentLabel: "Editing",
+    projects: [
+      {
+        title: "VegCurious Blog",
+        description:
+          "VEGCURIOUS is a blog website about vegetarian restaurants and food trends. The blog allows users to read about vegetarian meals and share experiences with fellow vegetarians.",
+        logo: "./veg-logo.png",
+        images: ["./veg-image.png", "./veg-image2.png"],
+        link: "#",
+      },
+    ],
+  },
+  {
     id: "ui-ux",
     categoryTitle: "User Interface",
-    accentLabel: "UI/UX Design",
+    accentLabel: "UI/UX",
     projects: [
       {
         title: "VegCurious Blog",
@@ -46,60 +99,7 @@ const CATEGORIZED_PROJECTS = [
         link: "#",
       },
     ],
-  },
-  {
-    id: "graphic-design",
-    categoryTitle: "Graphic Art",
-    accentLabel: "Graphic",
-    projects: [
-      {
-        title: "VegCurious Blog",
-        description:
-          "VEGCURIOUS is a blog website about vegetarian restaurants and food trends. The blog allows users to read about vegetarian meals and share experiences with fellow vegetarians.",
-        logo: "./veg-logo.png",
-        images: ["./veg-image.png", "./veg-image2.png"],
-        link: "#",
-      },
-      {
-        title: "Violet Photographer",
-        description:
-          "VIOLET PHOTOGRAPHER is an online gallery where users can download and upload images.",
-        logo: "./violet-logo.png",
-        images: ["./violet-image.png", "./violet-image2.png"],
-        link: "#",
-      },
-    ],
-  },
-  {
-    id: "animation",
-    categoryTitle: "Motion Canvas",
-    accentLabel: "Animation",
-    projects: [
-      {
-        title: "Be",
-        description:
-          "BE is a simple to do list app with a simple easy to use interface. The app allows users to set tasks and get remainders for the set tasks.",
-        logo: "./be-logo.png",
-        images: ["./be-image.png"],
-        link: "#",
-      },
-    ],
-  },
-  {
-    id: "editing",
-    categoryTitle: "VFX & Timeline",
-    accentLabel: "Video Editing",
-    projects: [
-      {
-        title: "VegCurious Blog",
-        description:
-          "VEGCURIOUS is a blog website about vegetarian restaurants and food trends. The blog allows users to read about vegetarian meals and share experiences with fellow vegetarians.",
-        logo: "./veg-logo.png",
-        images: ["./veg-image.png", "./veg-image2.png"],
-        link: "#",
-      },
-    ],
-  },
+  }
 ];
 
 export default function ProjectsSection() {
@@ -121,33 +121,28 @@ export default function ProjectsSection() {
         >
           {/* ================= STICKY LEFT SIDEBAR (TITLE CANVAS) ================= */}
           <div className="w-full bg-black lg:bg-transparent lg:w-[45%] md:h-screen sticky top-0 flex items-center justify-center overflow-hidden p-6 pt-12 md:pt-0 md:p-12 z-20">
-            <div className="hidden md:block absolute right-0 lg:top-1/2 lg:-translate-y-1/2 w-full text-right pr-4 md:pr-10">
-              <h2 className="font-antagon text-[3rem] md:text-[13rem] leading-[0.85] uppercase tracking-normal text-transparent [-webkit-text-stroke:2px_#2563eb] opacity-80 whitespace-nowrap transform lg:rotate-12 origin-right transition-transform duration-700">
-                {cat.categoryTitle}
-              </h2>
-            </div>
-            <div className="lg:absolute left-0 md:left-16 bottom-1/3 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 flex flex-col items-start z-10">
-              <div className="flex items-baseline gap-1">
-                <span className="font-antagon text-5xl sm:text-6xl md:text-7xl tracking-tight text-white">
+            <div className="lg:absolute left-0 md:left-16 bottom-1/3 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 flex flex-col items-end z-10">
+              <div className="flex items-baseline gap-1 text-texgyreheros font-bold text-[4rem] md:text-[6rem] leading-none z-0">
+                <span>
                   {cat.accentLabel.split(" ")[0]}
                 </span>
                 {cat.accentLabel.split(" ")[1] && (
-                  <span className="font-antagon text-5xl sm:text-6xl md:text-7xl tracking-tight text-white hidden sm:inline">
+                  <span className="hidden sm:inline">
                     {cat.accentLabel.split(" ")[1]}
                   </span>
                 )}
               </div>
-              <span className="font-antagon text-5xl sm:text-6xl md:text-7xl  text-white mt-[-10px] ml-6 tracking-wide drop-shadow-[0_4px_10px_rgba(37,99,235,0.3)]">
+              <span className="lg:absolute top-3/4 lg:-right-20 font-antagon text-5xl md:text-[7rem]  text-[#0000ff]">
                 Design
               </span>
             </div>
           </div>
           {/* ================= RIGHT SIDEBAR (PROJECT WORK FEED) ================= */}
           <div className="w-full lg:w-[55%] flex flex-col z-10">
-            <div className="h-screen flex items-center lg:ml-16 w-full overflow-x-hidden">
+            <div className="h-screen flex items-center w-full overflow-x-hidden">
               <div className="w-full h-full flex items-center justify-start pl-6 overflow-x-hidden">
-                <div className="flex flex-col flex-wrap justify-between p-4 font-sans font-extrabold tracking-widest text-[4rem] md:text-[12rem] leading-none z-0 w-full">
-                  <div className="text-transparent stroke-[#0000FF] -rotate-12 origin-left [-webkit-text-stroke:2px_#2563eb] uppercase tracking-normal">
+                <div className="flex flex-col flex-wrap justify-between p-4 font-texgyreheros font-bold text-[4rem] md:text-[18rem] leading-none z-0 w-full">
+                  <div className="text-transparent stroke-[#0000FF] -rotate-12 origin-left [-webkit-text-stroke:2px_#0000ff] capitalize tracking-normal">
                     {cat.categoryTitle}
                   </div>
                 </div>
