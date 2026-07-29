@@ -5,7 +5,7 @@ import { useQuery } from "convex/react";
 import ProjectsSection from "./projects-section";
 
 const AllProjects = () => {
-    const projects = useQuery(api.projects.listAll) ?? [];
+    const projects = useQuery(api.projects.listPublished) ?? [];
      const cards = projects.map((p) => {
     return {
         _id: p._id,

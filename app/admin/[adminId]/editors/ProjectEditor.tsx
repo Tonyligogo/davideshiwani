@@ -86,10 +86,10 @@ export function ProjectEditor({ itemId }: { itemId: string | null }) {
     <div className="p-6 space-y-5">
       <div className="flex justify-between items-center">
         <h2 className="text-lg font-semibold">{isNew ? "New Project" : "Edit Project"}</h2>
-        {/* <label className="flex items-center gap-2 text-sm">
+        <label className="flex items-center gap-2 text-sm">
           <input type="checkbox" checked={draft.published} onChange={handleTogglePublished} />
           Published
-        </label> */}
+        </label>
       </div>
 
       <TextField label="Title" value={draft.title} onChange={(v) => patchDraft<ProjectDraft>(key, { title: v })} />
