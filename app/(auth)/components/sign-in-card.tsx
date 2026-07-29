@@ -43,7 +43,7 @@ export function SignInCard({ onSignUp }: { onSignUp: () => void }) {
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Welcome back</CardTitle>
           <CardDescription>
-            Hiking Designer-The Man, The Myth, The Legend.
+            Hiking Designer
           </CardDescription>
         </CardHeader>
         <CardContent>

@@ -8,8 +8,16 @@
  * @module
  */
 
+import type * as about from "../about.js";
 import type * as auth from "../auth.js";
+import type * as blogs from "../blogs.js";
+import type * as files from "../files.js";
+import type * as hero from "../hero.js";
 import type * as http from "../http.js";
+import type * as lib_auth from "../lib/auth.js";
+import type * as projects from "../projects.js";
+import type * as skill from "../skill.js";
+import type * as upload from "../upload.js";
 import type * as users from "../users.js";
 
 import type {
@@ -19,8 +27,16 @@ import type {
 } from "convex/server";
 
 declare const fullApi: ApiFromModules<{
+  about: typeof about;
   auth: typeof auth;
+  blogs: typeof blogs;
+  files: typeof files;
+  hero: typeof hero;
   http: typeof http;
+  "lib/auth": typeof lib_auth;
+  projects: typeof projects;
+  skill: typeof skill;
+  upload: typeof upload;
   users: typeof users;
 }>;
 

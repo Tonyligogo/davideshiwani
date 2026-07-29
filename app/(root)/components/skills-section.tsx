@@ -1,6 +1,20 @@
 import { antagon } from '@/components/ui/fonts';
+import { Doc, Id } from "@/convex/_generated/dataModel";
 
-export default function SkillsSection() {
+interface SkillsSectionProps {
+  skills: Doc<"skills">[] | undefined;
+  onSkillClick?:(_id: Id<"skills">)=>void;
+}
+
+export default function SkillsSection({ skills, onSkillClick }: SkillsSectionProps) {
+  const allSkills = skills ?? [];
+  // group flat array into { category: Skill[] }
+  const grouped = allSkills.reduce<Record<string, Doc<"skills">[]>>((acc, skill) => {
+    if (!acc[skill.category]) acc[skill.category] = [];
+    acc[skill.category].push(skill);
+    return acc;
+  }, {});
+
   return (
     <div id="skills" className="relative min-h-screen w-full bg-black text-white overflow-hidden flex flex-col justify-center mt-16 p-4 md:p-20 select-none">
       
@@ -15,7 +29,7 @@ export default function SkillsSection() {
       </div>
 
       {/* --- MAIN CATEGORIES SPLIT GRID --- */}
-      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-end">
+      <div className="hidden w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-end">
         
         {/* ================= TECHNICAL SKILLS COLUMN ================= */}
         <div className="lg:col-span-7 flex flex-col">
@@ -403,7 +417,25 @@ export default function SkillsSection() {
             </span>
           </div>
         </div>
+
+        
       </div>
+      {Object.entries(grouped).map(([category, categorySkills]) => (
+        <div key={category}>
+          {/* <h3 className="text-4xl font-antagon mb-3">{category}</h3> */}
+          <div className="flex flex-wrap gap-6 mb-6">
+            {categorySkills.map((skill) => (
+              <button key={skill._id} onClick={() => onSkillClick && onSkillClick(skill._id)}>
+                <div 
+        className="h-24 w-24 [&>svg]:h-full [&>svg]:w-full"
+        dangerouslySetInnerHTML={{ __html: skill.icon || '' }} 
+      />
+              </button>
+            ))}
+          </div>
+        </div>
+      ))}
+
     </div>
   );
 }

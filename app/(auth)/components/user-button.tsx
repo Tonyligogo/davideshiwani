@@ -2,8 +2,6 @@
 
 import {
   Loader,
-  LogOutIcon,
-  UserIcon,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useAuthActions } from "@convex-dev/auth/react";
@@ -20,11 +18,7 @@ export function UserButton() {
   }
   return (
     <div>
-      <span>
-        <UserIcon />
-          {data?.email}
-      </span>
-      <Button onClick={()=>signOut()}> <LogOutIcon />
+      <Button onClick={()=>signOut()}>
         Sign Out</Button>
     </div>
 )

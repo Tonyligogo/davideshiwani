@@ -4,6 +4,7 @@ import HeroImage from "@/public/hero-image.jpg"
 import { antagon, billSmith, texgyreheros } from '@/components/ui/fonts'
 import { useState } from 'react';
 import { MenuIcon, XIcon } from 'lucide-react';
+import { WordRotate } from "@/components/ui/word-rotate"
 
 const navLinks = [
   {
@@ -23,12 +24,23 @@ const navLinks = [
     href:"#projects"
   },
   {
+    title: 'Blogs',
+    href:"#blogs"
+  },
+  {
     title: 'Hire me',
     href:"#hire"
   },
 ]
 
-const Hero = () => {
+type HeroProps = {
+  heroRoles: {
+    roles: string[];
+  };
+  selected?: boolean;
+};
+
+const Hero = ({ heroRoles,selected }: HeroProps) => {
   const [menuOpen, setMenuOpen] = useState(false)
   return (
     <div className='bg-black min-h-screen flex flex-col justify-between md:py-8 md:px-12'>
@@ -86,9 +98,9 @@ const Hero = () => {
         <h1 className="text-2xl md:text-4xl font-light text-neutral-400">
           David Eshiwani
         </h1>
-        <p className="text-2xl md:text-4xl font-light text-neutral-400">
-          UI/UX Designer
-        </p>
+        <div>
+          <WordRotate words={heroRoles.roles} className={`py-2 px-5 rounded-lg ${selected ? "border border-dashed" : "border-none"}`} />
+        </div>
       </footer>
     </div>
   )

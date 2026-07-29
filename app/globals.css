@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "react-quill-new/dist/quill.snow.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -83,6 +84,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --animate-float: float 6s ease-in-out infinite;
 }
 
 .dark {
@@ -129,7 +131,20 @@
   html {
     @apply font-inter;
   }
+  ol {
+    @apply list-decimal list-inside;
+  }
+  ul {
+    @apply list-disc list-inside;
+  }
 }
+html {
+  scroll-behavior: smooth;
+}
+@keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-12px) translateX(4px); }
+        }
 .grid-bg::after {
   content: '';
   position: fixed;
@@ -142,15 +157,54 @@
   z-index: 0;
 }
 
-/* globals.css */
-/* .grid-bg::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
-  z-index: 50;
-} */
+.ql-toolbar {
+  border: none !important;
+  background-color: #f8f8f8 !important;
+}
+.ql-toolbar .ql-formats:not(:last-child) {
+  border-right: 1px solid #dcdcdc !important;
+  padding-right: 12px !important;
+}
+
+.ql-container {
+  font-family: "Lato", sans-serif !important;
+  border: none !important;
+  height: unset !important;
+}
+
+.ql-editor {
+  line-height: 22px !important;
+  padding: 8px 22px !important;
+  color: #ffffff !important;
+  /* background-color: #232323 !important; */
+  font-weight: 400 !important;
+  font-family: "Lato", sans-serif !important;
+  font-size: 16px !important;
+}
+
+.ql-editor a {
+  text-decoration: underline !important;
+}
+
+.ql-editor a:hover {
+  text-decoration: underline !important;
+}
+
+.ql-renderer {
+  padding: 0 !important;
+}
+
+.ql-editor:before {
+  left: 12px !important;
+  font-family: "Lato", sans-serif !important;
+  color: #8d8d8d !important;
+  font-style: normal !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  @apply truncate;
+}
+
+.messages-scrollbar{
+  scrollbar-width: thin;
+  scrollbar-color: #dcdcdc #f8f8f8;
+}

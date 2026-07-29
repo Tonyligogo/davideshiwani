@@ -1,135 +1,59 @@
-/* eslint-disable @next/next/no-img-element */
-const CATEGORIZED_PROJECTS = [
-  {
-    id: "graphic-design",
-    categoryTitle: "Graphic Art",
-    accentLabel: "Graphic",
-    projects: [
-      {
-        title: "VegCurious Blog",
-        description:
-          "VEGCURIOUS is a blog website about vegetarian restaurants and food trends. The blog allows users to read about vegetarian meals and share experiences with fellow vegetarians.",
-        logo: "./veg-logo.png",
-        images: ["./veg-image.png", "./veg-image2.png"],
-        link: "#",
-      },
-      {
-        title: "Violet Photographer",
-        description:
-          "VIOLET PHOTOGRAPHER is an online gallery where users can download and upload images.",
-        logo: "./violet-logo.png",
-        images: ["./violet-image.png", "./violet-image2.png"],
-        link: "#",
-      },
-    ],
-  },
-  {
-    id: "animation",
-    categoryTitle: "Motion Canvas",
-    accentLabel: "Animation",
-    projects: [
-      {
-        title: "Be",
-        description:
-          "BE is a simple to do list app with a simple easy to use interface. The app allows users to set tasks and get remainders for the set tasks.",
-        logo: "./be-logo.png",
-        images: ["./be-image.png"],
-        link: "#",
-      },
-    ],
-  },
-  {
-    id: "editing",
-    categoryTitle: "VFX & Timeline",
-    accentLabel: "Editing",
-    projects: [
-      {
-        title: "VegCurious Blog",
-        description:
-          "VEGCURIOUS is a blog website about vegetarian restaurants and food trends. The blog allows users to read about vegetarian meals and share experiences with fellow vegetarians.",
-        logo: "./veg-logo.png",
-        images: ["./veg-image.png", "./veg-image2.png"],
-        link: "#",
-      },
-    ],
-  },
-  {
-    id: "ui-ux",
-    categoryTitle: "User Interface",
-    accentLabel: "UI/UX",
-    projects: [
-      {
-        title: "VegCurious Blog",
-        description:
-          "VEGCURIOUS is a blog website about vegetarian restaurants and food trends. The blog allows users to read about vegetarian meals and share experiences with fellow vegetarians.",
-        logo: "./veg-logo.png",
-        images: ["./veg-image.png", "./veg-image2.png"],
-        link: "#",
-      },
-      {
-        title: "Violet Photographer",
-        description:
-          "VIOLET PHOTOGRAPHER is an online gallery where users can download and upload images.",
-        logo: "./violet-logo.png",
-        images: ["./violet-image.png", "./violet-image2.png"],
-        link: "#",
-      },
-      {
-        title: "Weatherman",
-        description:
-          "WEATHERMAN is an interactive weather app available for both phone and desktop. ",
-        logo: "./weather-logo.png",
-        images: ["./weather-image.png", "./weather-desktop.png"],
-        link: "#",
-      },
-      {
-        title: "Fitted Threads",
-        description:
-          "FITTED THREADS is an e-commerce website with a user friendly interface and a landing page designed to maximize conversion. An online paying option and delivery schedule and tracking system.",
-        logo: "./fitted-threads-logo.png",
-        images: ["./fitted-threads-image.png"],
-        link: "#",
-      },
-      {
-        title: "Be",
-        description:
-          "BE is a simple to do list app with a simple easy to use interface. The app allows users to set tasks and get remainders for the set tasks.",
-        logo: "./be-logo.png",
-        images: ["./be-image.png"],
-        link: "#",
-      },
-    ],
-  }
-];
+export interface ProjectCardData {
+  _id: string;
+  title: string;
+  description: string;
+  tag: string;
+  type: string;
+  coverImageUrl: string | null;
+  previewImageUrls: string[];
+  logoUrl: string | null;
+  link?: string;
+  published: boolean;
+}
 
-export default function ProjectsSection() {
+interface ProjectsSectionProps {
+  projects: ProjectCardData[] | undefined;
+  onSelect?: (id: string) => void; // only passed in the dashboard preview
+  selectedId?: string | null;
+  previewMode?: boolean;
+}
+
+export default function ProjectsSection({ projects, onSelect, selectedId, previewMode }: ProjectsSectionProps) {
+    const safeProjects = projects ?? [];
+
+  if (safeProjects.length === 0) {
+    return <p className="text-sm text-neutral-400">No projects added yet.</p>;
+  }
+  const grouped = safeProjects.reduce<Record<string, ProjectCardData[]>>((acc, project) => {
+    (acc[project.tag] ??= []).push(project);
+    return acc;
+  }, {});
+
   return (
     <div
       id="projects"
-      className="w-full text-white selection:bg-blue-600 select-none relative mt-12"
+      className={`w-full text-white selection:bg-blue-600 select-none relative ${previewMode ? "" : "mt-12"}`}
     >
-      <div className=" flex flex-col justify-between p-4 md:p-12 font-sans opacity-30 font-extrabold tracking-widest text-[4rem] md:text-[14rem] leading-none pointer-events-none select-none z-0 ">
-        <div className="text-transparent stroke-blue-600 [-webkit-text-stroke:2px_#2563eb] uppercase tracking-normal mx-auto">
-          projects
+      {!previewMode && (
+        <div className=" flex flex-col justify-between p-4 md:p-12 font-sans opacity-30 font-extrabold tracking-widest text-[4rem] md:text-[14rem] leading-none pointer-events-none select-none z-0 ">
+          <div className="text-transparent stroke-blue-600 [-webkit-text-stroke:2px_#2563eb] uppercase tracking-normal mx-auto">
+            projects
+          </div>
         </div>
-      </div>
+      )}
       {/* Loop through each category wrapper block */}
-      {CATEGORIZED_PROJECTS.map((cat) => (
+      {Object.entries(grouped).map(([tag, tagProjects]) => (
         <section
-          key={cat.id}
+          key={tag}
           className="relative w-full flex flex-col lg:flex-row items-start lg:min-h-screen"
         >
           {/* ================= STICKY LEFT SIDEBAR (TITLE CANVAS) ================= */}
           <div className="w-full bg-black lg:bg-transparent lg:w-[45%] md:h-screen sticky top-0 flex items-center justify-center overflow-hidden p-6 pt-12 md:pt-0 md:p-12 z-20">
             <div className="lg:absolute left-0 md:left-16 bottom-1/3 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 flex flex-col items-end z-10">
               <div className="flex items-baseline gap-1 text-texgyreheros font-bold text-[4rem] md:text-[6rem] leading-none z-0">
-                <span>
-                  {cat.accentLabel.split(" ")[0]}
-                </span>
-                {cat.accentLabel.split(" ")[1] && (
-                  <span className="hidden sm:inline">
-                    {cat.accentLabel.split(" ")[1]}
-                  </span>
+                <span>{tag.split(" ")[0]}</span>
+                {tag.split(" ")[1] && (
+                  <span className="hidden sm:inline">{tag.split(" ")[1]}</span>
                 )}
               </div>
               <span className="lg:absolute top-3/4 lg:-right-20 font-antagon text-5xl md:text-[7rem]  text-[#0000ff]">
@@ -139,11 +63,13 @@ export default function ProjectsSection() {
           </div>
           {/* ================= RIGHT SIDEBAR (PROJECT WORK FEED) ================= */}
           <div className="w-full lg:w-[55%] flex flex-col z-10">
-            
-            {cat.projects.map((project, idx) => (
+            {tagProjects.map((project) => (
               <div
-                key={idx}
-                className="w-full md:min-h-screen flex flex-col justify-center px-6 md:px-16 pt-12 md:pt-0 md:py-20 border-t border-neutral-950 lg:first:border-t-0"
+                key={project._id}
+                onClick={() => onSelect?.(project._id)}
+                className={`w-full md:min-h-screen flex flex-col justify-center px-6 md:px-16 pt-12 md:pt-0 md:py-20 border-t border-neutral-950 lg:first:border-t-0
+                    ${onSelect ? "cursor-pointer" : ""} ${selectedId === project._id ? "bg-[#2c2c2c] rounded-xl" : ""}
+                    `}
               >
                 <div className="w-full flex items-center justify-between gap-6 mb-8">
                   <div className="flex items-center gap-4">
@@ -151,11 +77,11 @@ export default function ProjectsSection() {
                       {project.title}
                     </h3>
                   </div>
-                  {project.logo && (
+                  {project.logoUrl && (
                     <div className="w-25">
                       <img
-                        src={project.logo}
-                        alt="Project Logo"
+                        src={project.logoUrl}
+                        alt={`${project.title} Logo`}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -167,7 +93,7 @@ export default function ProjectsSection() {
                 <div className="w-full">
                   {/* Right Work Screen Layout Card + Interactive Link Button Stack */}
                   <div className="flex gap-8 overflow-x-auto">
-                    {project.images.map((img, index) => (
+                    {project.previewImageUrls.map((img, index) => (
                       <div key={index} className="w-full ">
                         <img
                           src={img}
