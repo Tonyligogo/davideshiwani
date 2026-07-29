@@ -22,7 +22,7 @@ export default function ProjectsSection({ projects, onSelect, selectedId, previe
     const safeProjects = projects ?? [];
 
   if (safeProjects.length === 0) {
-    return <p className="text-sm text-neutral-400">No projects added yet.</p>;
+    return <p className="text-sm text-neutral-400 max-w-7xl mx-auto">No projects added yet.</p>;
   }
   const grouped = safeProjects.reduce<Record<string, ProjectCardData[]>>((acc, project) => {
     (acc[project.tag] ??= []).push(project);

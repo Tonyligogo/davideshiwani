@@ -7,7 +7,9 @@ export default function HeroSection({selected}: {selected?: boolean}) {
 
     const { data } = useGetHeroRoles();
 
-    if (!data) return null;
+    const noData = {
+            roles: [] as string[]
+    }
 
-    return <Hero heroRoles={data} selected={selected ?? false}/>;
+    return <Hero heroRoles={data || noData} selected={selected ?? false}/>;
 }

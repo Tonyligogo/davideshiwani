@@ -35,12 +35,12 @@ const navLinks = [
 
 type HeroProps = {
   heroRoles: {
-    roles: string[];
+    roles?: string[];
   };
   selected?: boolean;
 };
 
-const Hero = ({ heroRoles,selected }: HeroProps) => {
+const Hero = ({ heroRoles, selected }: HeroProps) => {
   const [menuOpen, setMenuOpen] = useState(false)
   return (
     <div className='bg-black min-h-screen flex flex-col justify-between md:py-8 md:px-12'>
@@ -98,9 +98,9 @@ const Hero = ({ heroRoles,selected }: HeroProps) => {
         <h1 className="text-2xl md:text-4xl font-light text-neutral-400">
           David Eshiwani
         </h1>
-        <div>
+        {heroRoles.roles && <div>
           <WordRotate words={heroRoles.roles} className={`py-2 px-5 rounded-lg ${selected ? "border border-dashed" : "border-none"}`} />
-        </div>
+        </div>}
       </footer>
     </div>
   )
